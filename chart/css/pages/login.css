@@ -1,0 +1,50 @@
+html {
+height: 100%;
+}
+body{
+background-image: url('../../img/loginbg.png');
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
+background-color: rgba(255, 255, 255, 0.5);
+line-height: 2;
+background-attachment: fixed;
+}
+.login .wrapper{
+margin-top: 5%;
+background-image: url('../../img/loginwh.png');
+background-size: contain;
+background-color: transparent;
+background-repeat: no-repeat;
+background-position: center;
+position: relative;
+padding: 8%  10% 10% 10%;
+}
+.login-title{
+color: #444;
+max-width:300px;
+margin: 0px auto;
+padding: 0px 10px;
+}
+.login-title img {
+width: 80px;
+height: 80px;
+vertical-align: middle;
+}
+.login-btn{
+background-color: #67843E;
+color: #fff;
+border: none;
+width: 100px;
+border-radius: 3px;
+margin: 20px auto;
+padding: 10px; 
+}
+input{
+width: 100%;
+border: none;
+background-color: transparent;
+}
+.account , .password{
+border-bottom: 2px solid #5F8935;
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/base/_reset.css">
+    <link rel="stylesheet" href="css/base/normalize.css">
+    <link rel="stylesheet" href="css/base/_fontStyle.css">
+    <link rel="stylesheet" href="css/base/_basicStyle.css">
+    <link rel="stylesheet" href="css/layout/_navbar.css">
+    <link rel="stylesheet" href="css/components/input_style.css">
+    <link rel="stylesheet" href="css/components/date.css">
+    <link rel="stylesheet" href="css/components/loading.css">
+    <link rel="stylesheet" href="css/components/radiobtn.css">
+    <link rel="stylesheet" href="css/pages/CumulativeNumber.css">
+    <link rel="stylesheet" href="css/components/sweetalert.min.css">
+
+    <title>大潭火力發電廠門禁管理系統</title>
+</head>
+
+<body>
+    <div id="header"></div>
+    <div id="load"></div>
+    <div id="print" style="display: none;"></div>
+    <section class="wrapper" style="margin-top: 80px;">
+        <div class="container">
+            <!--圖表區塊-->
+            <div id="chart_app">
+                <!--圖表日期/匯出-->
+                <div class="ver-align" id="top">
+                    <div class="box mg-10 bgc_white" style="display: inline-block; padding:5px 10px;">
+                        <div class="date_div">
+                            <button class="date_btn" v-bind:class="[ message === '3' ? 'active' : '' ]"
+                                v-on:click="time('3')">日</button>
+                        </div>
+                        <div class=" date_div">
+                            <button class="date_btn" v-bind:class="[ message === '2' ? 'active' : '' ]"
+                                v-on:click="time('2')">週</button>
+                        </div>
+                        <div class="date_div">
+                            <button class="date_btn" v-bind:class="[ message === '0' ? 'active' : '' ]"
+                                v-on:click="time('0')">月</button>
+                        </div>
+                        <div class="date_div">
+                            <button class="date_btn" v-bind:class="[ message === '1' ? 'active' : '' ]"
+                                v-on:click="time('1')">年</button>
+                        </div>
+                        <div id="datepick" style="display: inline-block;">
+                            <span class="datecustom">自訂</span>
+                            <el-date-picker :editable="false" v-model="range" type="daterange" start-placeholder="起始日期"
+                                end-placeholder="結束日期" value-format="yyyy/MM/dd">
+                            </el-date-picker>
+                            <button class="date_btn" v-bind:class="[ message === '4' ? 'active' : '' ]"
+                                v-on:click="time('4')">確定</button>
+                        </div>
+                    </div>
+                    <span class="remind_word">＊自訂日期範圍最多45天</span>
+                    <a id="printbtn"><button class="people_btn output align-right">匯出資料</button></a>
+                </div>
+                <!--圖表-->
+                <div class="mg-10">
+                    <div id="title" class="bl_word fs-28 mb_30 fs-24" style="display: inline-block;">累積進廠人次統計圖</div>
+                    <span id="date" class="bl_word fs-28" style="float: right;">日期：</span>
+                </div>
+                <div id="chartbox" class="box bgc_white pd-30 mg-10">
+                    <div id="main"></div>
+                </div>
+
+            </div>
+    </section>
+</body>
+
+<!-- oringinal -->
+<script src="js/vue.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/apexcharts.js"></script>
+<!-- components -->
+<script src="js/cookie.js"></script>
+<script src="js/dropdownmenu.js"></script>
+<script src="js/index_date.js"></script>
+<script src="js/goback.js"></script>
+<script src="js/accordion.js"></script>
+<script src="js/radiochange.js"></script>
+<script src="js/sweetalert.min.js"></script>
+
+<!-- pages -->
+<script src="js/CumulativeNumber.js"></script>
+<script>
+    $("#header").load("header.html");
+</script>
+<script>
+    $("#load").load("loading.html");
+</script>
+<script>
+    $("#print").load("popup.html");
+</script>
+<script>
+    $("#printbtn").click(function () {
+        $("#print").css("display", "flex");
+        setTimeout(function () {
+            $('#overlay').fadeOut();
+            $("#print").css("display", "none");
+        }, 1300);
+    });
+</script>
+
+</html>

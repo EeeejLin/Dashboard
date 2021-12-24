@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- google icon -->
+  <link rel="stylesheet" href="css/base/_reset.css">
+  <link rel="stylesheet" href="css/base/normalize.css">
+  <link rel="stylesheet" href="css/base/_fontStyle.css">
+  <link rel="stylesheet" href="css/base/_basicStyle.css">
+  <link rel="stylesheet" href="css/layout/_navbar.css">
+  <link rel="stylesheet" href="css/components/loading.css">
+  <link rel="stylesheet" href="css/pages/companytable.css">
+
+  <title>大潭火力發電廠門禁管理系統</title>
+</head>
+
+<body>
+  <div id="header"></div>
+  <script>
+    $("#header").load("header.html");
+  </script>
+  <div id="overlay">
+      <div class="cv-spinner">
+          <span class="spinner"></span>
+      </div>
+  </div>
+  <section class="wrapper" style="margin-top: 80px; background-color: #f9f9f9;">
+    <div class="container" id="companytable">
+      <div class="align_right">
+        <button class="output peopleWork_btn" v-on:click="dataPrint('1')">匯出資料</button>
+      </div>
+      <div class="out">
+        <table class="table-scroll">
+          <thead>
+            <tr>
+              <th>No
+                <a href="#"><span class="material-icons wh_word"
+                    style="margin-left: -12px; font-size: 24px;"></span></a>
+              </th>
+              <th>時間
+                <a href="#"><span class="material-icons wh_word"
+                    style="margin-left: -12px; font-size: 24px;"></span></a>
+              </th>
+              <th>姓名</th>
+              <th>人員ID</th>
+              <th>電話</th>
+              <th>組室</th>
+              <th>承攬商公司</th>
+              <th>崗哨</th>
+            </tr>
+          </thead>
+          <tbody class="body-half-screen">
+            <tr style="height: 5px;"></tr>
+            <tr>
+              <td>1</td>
+              <td>2020/09/13 06:36</td>
+              <td>李月碧(北)</td>
+              <td>H225478782</td>
+              <td>0910-281-884</td>
+              <td></td>
+              <td>晶赫科技工程有限公司</td>
+              <td>北崗哨</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>2020/09/13 06:45</td>
+              <td>黃致穎（南)</td>
+              <td>E122855291</td>
+              <td></td>
+              <td>北部施工處-運轉組</td>
+              <td>瑞士商奇異全球服務股份有限公司台灣分公司</td>
+              <td>北崗哨</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>2020/09/13 06:52</td>
+              <td>吳文賢(南)</td>
+              <td>C100755487</td>
+              <td>03-4735813</td>
+              <td></td>
+              <td>琿宏工程企業有限公司</td>
+              <td>北崗哨</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>2020/09/13 06:53</td>
+              <td>陳國隆(南)</td>
+              <td>C120290898</td>
+              <td></td>
+              <td></td>
+              <td>琿宏工程企業有限公司</td>
+              <td>北崗哨</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>2020/09/13 06:49</td>
+              <td>曾素美(北)</td>
+              <td>T221618172</td>
+              <td>0985-765-866</td>
+              <td></td>
+              <td>合熒實業有限公司</td>
+              <td>北崗哨</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>2020/09/13 06:51</td>
+              <td>陳逢汴(北)</td>
+              <td>H100905062</td>
+              <td>0911-695-932</td>
+              <td></td>
+              <td>合熒實業有限公司</td>
+              <td>北崗哨</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>2020/09/13 06:55</td>
+              <td>蘇雪萍（北)</td>
+              <td>J221481828</td>
+              <td>0988-820-780</td>
+              <td></td>
+              <td>合熒實業有限公司</td>
+              <td>北崗哨</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>2020/09/13 06:56</td>
+              <td>何惠英(北)</td>
+              <td>H121687569</td>
+              <td>0937-972-305</td>
+              <td></td>
+              <td>合熒實業有限公司</td>
+              <td>北崗哨</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>2020/09/13 06:58</td>
+              <td>劉金維（北)</td>
+              <td>H121687569</td>
+              <td>0989-683-477</td>
+              <td></td>
+              <td>強固保全股份有限公司</td>
+              <td>北崗哨</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>2020/09/13 06:58</td>
+              <td>徐智權（北)</td>
+              <td>H122136347</td>
+              <td>0937-972-305</td>
+              <td></td>
+              <td>強固保全股份有限公司</td>
+              <td>北崗哨</td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td>2020/09/13 06:58</td>
+              <td>謝文慶（北)</td>
+              <td>A125050070</td>
+              <td>0930-378-698</td>
+              <td></td>
+              <td>強固保全股份有限公司</td>
+              <td>北崗哨</td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td>2020/09/13 06:58</td>
+              <td>徐永銘（北)</td>
+              <td>H121614851</td>
+              <td>0925-321-085	</td>
+              <td></td>
+              <td>強固保全股份有限公司</td>
+              <td>北崗哨</td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td>2020/09/13 06:58</td>
+              <td>莊德昌（北)</td>
+              <td>G120241371</td>
+              <td>0953-777-499</td>
+              <td></td>
+              <td>強固保全股份有限公司</td>
+              <td>北崗哨</td>
+            </tr>
+            <tr>
+              <td>14</td>
+              <td>2020/09/13 06:58</td>
+              <td>陳昭閔（北）</td>
+              <td>E122835717</td>
+              <td>0930-496-351</td>
+              <td></td>
+              <td>強固保全股份有限公司</td>
+              <td>北崗哨</td>
+            </tr>
+            <tr>
+              <td>15</td>
+              <td>2020/09/13 06:58</td>
+              <td>周宜諒(北)</td>
+              <td>H125315108</td>
+              <td>0932-059-695</td>
+              <td></td>
+              <td>強固保全股份有限公司</td>
+              <td>北崗哨</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</body>
+<!-- oringinal -->
+<script src="js/vue.js"></script>
+<script src="js/jquery.min.js"></script>
+<!-- components -->
+<script src="js/cookie.js"></script>
+<script src="js/dropdownmenu.js"></script>  
+<script src="js/goback.js"></script>
+<!-- <script>
+  let companytable = new Vue({
+    el: "#companytable",
+    data: {
+      items:[]
+    },
+    methods: { //methods是關鍵字 
+      start: function () {
+          $("#overlay").fadeIn(1000);
+          companytable.mainpage('0');
+      },
+      dataPrint: function (cli) {
+          console.log(cli);
+          companytable.mainpage(cli);
+      },
+      mainpage: function (down) {
+        console.log(down);
+        let vm = this;
+        var url = location.href;
+        var id = "";
+        //再來用去尋找網址列中是否有資料傳遞(QueryString)
+        if (url.indexOf('?') != -1) {
+
+          //在此直接將各自的參數資料切割放進ary中
+          var ary = url.split('?')[1].split('&');
+          var time = ary[0].split('=');
+          var dateTime = time[1];
+          var InOut = ary[1];
+          var TypeAll = ary[2];
+
+          console.log(dateTime);
+          console.log(InOut);
+          console.log(TypeAll);
+          var self=this;
+
+          $.ajax({
+            url: "http://192.168.50.47:8002/api/ExcessTable.aspx",
+            method: "post", //直接傳遞物件
+            data: {
+              Token: getCookie('token'),
+              InquireTime: dateTime,
+              InquireType: TypeAll,
+              CrewFactory: InOut,
+              TypeName: "無",
+              Export: down,
+
+            },
+            dataType: "json",
+            success: function (evt) { 
+              vm.message = "";
+              self.items=evt;
+              $("#overlay").fadeOut(300);
+            },
+          });
+        }
+      }
+    }
+  });
+  $(document).ready(function () {
+    setTimeout(companytable.start, 1000);
+  })           
+</script> -->
+
+</html>

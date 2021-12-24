@@ -1,0 +1,91 @@
+.peopleDay , .peopleInDay{
+width: 100%;
+}
+.peopleMonth , .peopleOvertime{
+padding:25px 10px 10px 10px;
+}
+.line{
+width: 3px;
+height: 180px;
+background-color: #dbdbdb;
+}
+.peopleDay-left , .peopleInDay-left , .peopleDay-right , .peopleInDay-right{
+padding: 10px 10px;
+}
+.peopleUnOvertime , .peopleInUnOvertime{
+position: absolute;
+left:15px;
+}
+.peopleUnOvertime span , .peopleInUnOvertime span {
+display: block;
+text-align: left;
+margin: 10px 0;
+}
+.peopleCurrent , .peopleInCurrent{
+position: absolute;
+top:4.5rem;
+right:15px;
+}
+.peopleCurrent span , .peopleInCurrent span {
+display: block;
+text-align: right;
+margin: 10px 0;
+}
+.unusaul-bg{
+background: #F0F0F0;
+box-shadow: inset 4px 4px 10px rgba(197, 197, 197, 0.5);
+border-radius: 8px;
+margin: 5px auto;
+padding: 3px;
+height: 140px;
+overflow-y: scroll;
+}
+.unusaul-btn{
+width: 32%;
+height:4rem;
+margin-top: 3px;
+}
+.boxbtn{
+width: 150px;
+height: 36px;
+border-radius: 20px;   
+background: #3c3c3c;
+color: #fff;
+font-size: 16px;
+padding: 5px 10px;
+vertical-align: middle;
+font-weight:321;
+text-align: center;
+}
+.boxbtn-1{
+width: 100px;
+height: 20px;
+border-radius: 20px;   
+background: #3c3c3c;
+color: #fff;
+font-size: 10px;
+padding: 4px 10px;
+vertical-align: middle;
+text-align: center;
+}
+.unusualState .people_btn{
+background:linear-gradient(171.97deg, #FF6C00 7.58%, #FDA000 92.59%);
+box-shadow: 5px 5px 10px rgba(201, 201, 201, 0.501961), -5px -5px 15px rgba(201, 201, 201, 0.354813);
+border-radius: 8px;
+}
+.unusualState ::-webkit-scrollbar {
+-webkit-appearance: none;
+width: 7px;
+}
+.unusualState ::-webkit-scrollbar-thumb {
+border-radius: 4px;
+background-color: #3C3C3C;
+-webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+
+@media (max-width: 1366px) {
+div.flex.align_center{
+    width:1400px!important;
+}
+}
+

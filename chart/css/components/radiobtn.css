@@ -1,0 +1,98 @@
+.radio {
+display: inline-block;
+position: relative;
+padding: 0 6px;
+}
+.radio input[type='radio'] {
+display: none;
+}
+.radio label {
+color: #666!important;
+font-weight: normal!important;
+}
+.radio label:before {
+content: " "!important;
+display: inline-block!important;
+position: relative!important;
+top: 5px!important;
+margin: 0 5px 0 0!important;
+width: 20px!important;
+height: 20px!important;
+border-radius: 11px!important;
+border: 2px solid #5a5a5a!important;
+background-color: transparent!important;
+}
+.radio input[type=radio]:checked + label:after {
+border-radius: 11px!important;
+width: 14px!important;
+height: 14px!important;
+position: absolute!important;
+top: 10px!important;
+left: 11px!important;
+content: " "!important;
+display: block!important;
+}
+.checkwrapper{
+width: 25%;
+}
+.checkfield {
+position: relative;
+padding-left: 40px;
+text-align: left;
+vertical-align: middle;
+}
+.checkfield label {
+cursor: pointer;
+}
+.checkfield label:before, .checkfield label:after {
+content: '';
+position: absolute;
+top: 50%;
+border-radius: 50%;
+}
+.checkfield label:before {
+left: 0;
+width: 25px;
+height: 25px;
+margin: -15px 0 0;
+background: #f7f7f7;
+border: 1px solid #5a5a5a;
+}
+.checkfield label:after {
+top: 9px;
+left: 5px;
+width: 17px;
+height: 17px;
+margin: -10px 0 0;
+opacity: 0;
+-webkit-transition: opacity 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
+transition: opacity 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
+transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
+transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
+}
+.checkfield input[type="checkbox"] {
+position: absolute;
+width: 30px;
+height: 30px;
+top: 0;
+left: 0;
+visibility: hidden;
+}
+.checkfield input[type="checkbox"]:checked + label:after {
+-webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+opacity: 1;
+}
+.square{
+padding: 10px 0;
+}
+.square label:before, .square label:after {
+border-radius: 0;
+}
+.checkfield span{
+width: 100%;
+display: inline-block;
+overflow:hidden;
+text-overflow:ellipsis;
+white-space:nowrap;
+}

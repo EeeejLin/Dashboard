@@ -1,0 +1,22 @@
+<nav id="navbar" class="navbar">
+    <div class="container">
+        <div class="elements align_center ver-align fs-20">
+            <div id="menuya" class="ver-align">
+                <button class="menubtn bl_word" onclick="drop()" id="menu">選單<img class="menuSelect" src="img/keyboard_arrow_down-24px.svg" alt="選單" style="cursor: pointer; width: 24px; height: 24px;"></button>
+            </div>
+            <div class="nav-title">
+                <img src="img/台電.png" alt="">
+                <span class="fw-600">大潭火力發電廠門禁管理系統</span>
+            </div>
+            <a class="bl_word" onclick="javascript:goBack();" style="cursor: pointer;">返回</a>
+        </div>
+    </div>
+    <div id="menudrop" class="menudrop" style="display: none;">
+        <button onclick="javascript:location.href='index.html'" class="btn wh_word fw-900"
+            style="background-color:#AFAFAF;">首頁</button>
+        <button onclick="javascript:location.href='people.html'" class="btn people_btn wh_word fw-900">人數資料</button>
+        <button onclick="javascript:location.href='company.html'"class="btn peopleWork_btn  wh_word fw-900">承攬發包資料</button>
+        <button onclick="javascript:location.href='car.html'" class="btn car_btn  wh_word fw-900">車輛資料</button>
+        <button onclick="javascript:location.href='entry.html'" id="entry" class="btn entry_btn grow-1 admin-btn mg-10 fs-20 fw-900 h-100">&emsp;通關資料&emsp;</button>
+    </div>
+</nav>

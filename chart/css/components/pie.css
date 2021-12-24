@@ -1,0 +1,131 @@
+.peopleDay_chart, .peopleCurrent_chart, .peopleInDay_chart, .peopleInCurrent_chart{
+width:25%;
+text-align: center;
+}
+.peopleDay_piechart, .peopleInDay_piechart{
+width: 150px;
+height: 150px;
+border-radius: 50%;
+background-color: #FDA000;
+position: relative;
+margin: 0 auto;
+}
+.peopleDay_chart .gt-50, .peopleInDay_chart .gt-50{
+background-color: #FDA000;
+}
+.peopleDay_progress, .peopleInDay_progress{
+content: "";
+position: absolute;
+border-radius: 50%;
+left: calc(50% - 75px);
+top: calc(50% - 75px);
+width: 150px;
+height: 150px;
+clip: rect(0, 150px, 150px, 75px);
+}
+.peopleDay_progress .peopleDay_progress-fill, .peopleInDay_progress .peopleInDay_progress-fill{
+content: "";
+position: absolute;
+border-radius: 50%;
+left: calc(50% - 75px);
+top: calc(50% - 75px);
+width: 150px;
+height: 150px;
+clip: rect(0, 75px, 150px, 0);
+background: #FDA000;
+transform: rotate(60deg);
+}
+.gt-50 .peopleDay_progress, .gt-50 .peopleInDay_progress{
+clip: rect(0, 75px, 150px, 0);
+}
+.gt-50 .peopleDay_progress .peopleDay_progress-fill, .gt-50 .peopleInDay_progress .peopleInDay_progress-fill{
+clip: rect(0, 150px, 150px, 75px);
+background: #E5E5E5;
+}
+.peopleDay_percents, .peopleInDay_percents{
+content: "";
+position: absolute;
+border-radius: 50%;
+left: calc(50% - 120px/2);
+top: calc(50% - 120px/2);
+width: 120px;
+height: 120px;
+/* background: #fff; */
+text-align: center;
+display: table;
+}
+.peopleDay_percents span, .peopleInDay_percents span {
+display: block;
+font-size: 2.6em;
+font-weight: bold;
+color: #FDA000;
+}
+.peopleDay_percents-wrapper, .peopleInDay_percents-wrapper {
+display: table-cell;
+vertical-align: middle;
+}
+
+/* ============================================================= */
+
+.peopleCurrent_piechart, .peopleInCurrent_piechart{
+width: 150px;
+height: 150px;
+border-radius: 50%;
+background-color: #E5E5E5;
+position: relative;
+margin: 0 auto;
+}
+.peopleCurrent_chart .gt-50, .peopleInCurrent_chart .gt-50{
+background-color: #FDA000;
+}
+.peopleCurrent_progress, .peopleInCurrent_progress{
+content: "";
+position: absolute;
+border-radius: 50%;
+left: calc(50% - 75px);
+top: calc(50% - 75px);
+width: 150px;
+height: 150px;
+clip: rect(0, 150px, 150px, 75px);
+}
+.peopleCurrent_progress .peopleCurrent_progress-fill, .peopleInCurrent_progress .peopleInCurrent_progress-fill  {
+content: "";
+position: absolute;
+border-radius: 50%;
+left: calc(50% - 75px);
+top: calc(50% - 75px);
+width: 150px;
+height: 150px;
+clip: rect(0, 75px, 150px, 0);
+background: #FDA000;
+transform: rotate(60deg);
+}
+.gt-50 .peopleCurrent_progress, .gt-50 .peopleInCurrent_progress{
+clip: rect(0, 75px, 150px, 0);
+}
+.gt-50 .peopleCurrent_progress .peopleCurrent_progress-fill, .gt-50 .peopleInCurrent_progress .peopleInCurrent_progress-fill{
+clip: rect(0, 150px, 150px, 75px);
+background: #E5E5E5;
+}
+.peopleCurrent_percents, .peopleInCurrent_percents {
+content: "";
+position: absolute;
+border-radius: 50%;
+left: calc(50% - 120px/2);
+top: calc(50% - 120px/2);
+width: 120px;
+height: 120px;
+background: #fff;
+text-align: center;
+display: table;
+}
+.peopleCurrent_percents span, .peopleInCurrent_percents span {
+display: block;
+font-size: 2.6em;
+font-weight: bold;
+color: #FDA000;
+}
+.peopleCurrent_percents-wrapper, .peopleInCurrent_percents-wrapper {
+display: table-cell;
+vertical-align: middle;
+}

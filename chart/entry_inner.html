@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/base/_reset.css">
+    <link rel="stylesheet" href="css/base/_basicStyle.css">
+    <link rel="stylesheet" href="css/base/_fontStyle.css">
+    <link rel="stylesheet" href="css/base/normalize.css">
+    <link rel="stylesheet" href="css/layout/_navbar.css">
+    <link rel="stylesheet" href="css/components/input_style.css">
+    <link rel="stylesheet" href="css/components/date.css">
+    <link rel="stylesheet" href="css/components/radiobtn.css">
+    <link rel="stylesheet" href="css/components/loading.css">
+    <link rel="stylesheet" href="css/components/sweetalert.min.css">
+    <link rel="stylesheet" href="css/pages/entry_inner.css">
+    <link rel="stylesheet" href="css/components/accordion.css">
+
+    <title>通關人數資料</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <div id="header"></div>
+    <div id="load"></div>
+    <div id="print" style="display: none;"></div>
+    <!--數據文字-->
+    <section class="wrapper" style="margin-top: 80px; background-color: #f9f9f9;">
+        <div class="container">
+            <div class="box mg-10 bgc_white pd-10"
+                style="display:flex; flex-wrap:wrap; text-align:left; line-height: 25px;">
+                <div class="radio mg-10"><input id="kiosk" name="inquiretype" value="0" type="radio"
+                        onclick="getTypeValue()"><label for="kiosk">通道刷卡機</label></div>
+                <div class="radio mg-10"><input id="place" name="inquiretype" value="1" type="radio" 
+                        onclick="getTypeValue()"><label for="place">崗哨</label></div>
+
+            </div>
+            <div class="accordion flex align_center box grow-1 mg-10 peopleDay">
+                <ul style="margin-bottom: 0;">
+                    <li>
+                        <a id="title" class="bl_word fs-18 align_left"></a>
+                        <div class="align_left">
+                            <input id="search" class="search h-24" type="text" value="">
+                            <button id="searchBtn" class="search entry_btn nr-btn">搜尋</button>
+            
+                            <div id="renderout" class="mg_top_5 inner">
+                                <div id="selectall"></div>
+                                <div id="render" class="mg_top_5 flex"></div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="c_submit">
+                    <button id="submit" onclick="getKioskValue()" class="confirm output entry_btn">確定</button>
+                </div>
+            </div>
+            <!--圖表區塊-->
+            <div id="chart_app">
+                <!--圖表日期/匯出-->
+
+                <div class="ver-align" id="top">
+                    <div class="box mg-10 bgc_white" style="display: inline-block; padding:5px 10px;">
+                        <div class="date_div">
+                            <button class="date_btn" v-bind:class="[ message === '日' ? 'active' : '' ]"
+                                v-on:click="time('日')">日</button>
+                        </div>
+                        <div class=" date_div">
+                            <button class="date_btn" v-bind:class="[ message === '週' ? 'active' : '' ]"
+                                v-on:click="time('週')">週</button>
+                        </div>
+                        <div class="date_div">
+                            <button class="date_btn" v-bind:class="[ message === '月' ? 'active' : '' ]"
+                                v-on:click="time('月')">月</button>
+                        </div>
+                        <div id="datepick" style="display: inline-block;">
+                            <span class="datecustom">自訂</span>
+                            <el-date-picker :editable="false" v-model="range" type="daterange" start-placeholder="起始日期"
+                                end-placeholder="結束日期" value-format="yyyy/MM/dd">
+                            </el-date-picker>
+                            <button class="date_btn" v-bind:class="[ message === '自訂' ? 'active' : '' ]"
+                            v-on:click="time('自訂')">確定</button>
+                        </div>
+                    </div>
+                    <span class="remind_word">＊自訂日期範圍最多45天</span>
+                    <a id="printbtn"><button class="entry_btn output align-right">匯出資料</button></a>
+                </div>
+                <!--圖表-->
+                <div class="mg-10">
+                    <div class="fs-28 fs-24" style="display: inline-block;">各通道刷卡機通關人數</div>
+                    <span id="date" class="fs-28" style="float: right;">日期</span>
+                </div>  
+                <div id="chartbox" class="box bgc_white pd-30 mg-10">
+                    <div id="main"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- oringinal -->
+    <script src="js/vue.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/apexcharts.js"></script>
+    <!-- components -->
+    <script src="js/dropdownmenu.js"></script>
+    <script src="js/cookie.js"></script>
+    <script src="js/index_date.js"></script>
+    <script src="js/goback.js"></script>
+    <script src="js/sweetalert.min.js"></script>
+    <script src="js/accordion.js"></script>
+    <!-- pages -->
+    <script src="js/entry_inner.js"></script>
+    <script>
+        $("#header").load("header.html");
+    </script>
+    <script>
+        $("#load").load("loading.html");
+    </script>
+    <script>
+        $("#print").load("popup.html");
+    </script> 
+    <script>
+        $( "#printbtn" ).click(function() {
+            $( "#print" ).css("display","flex");
+                setTimeout(function() { 
+                $('#overlay').fadeOut(); 
+                $( "#print" ).css("display","none");
+            }, 1300); 
+        });
+    </script>
+
+</body>
+
+</html>

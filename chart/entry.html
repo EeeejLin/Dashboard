@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/base/_reset.css">
+  <link rel="stylesheet" href="css/base/normalize.css">
+  <link rel="stylesheet" href="css/base/_fontStyle.css">
+  <link rel="stylesheet" href="css/base/_basicStyle.css">
+  <link rel="stylesheet" href="css/layout/_navbar.css">
+  <link rel="stylesheet" href="css/components/FCpie.css">
+  <link rel="stylesheet" href="css/components/loading.css">
+  <link rel="stylesheet" href="css/pages/entry.css">
+
+  <title>大潭火力發電廠門禁管理系統</title>
+</head>
+
+<body>
+  <!-- header -->
+  <div id="header"></div>
+  <div id="load"></div>
+  <div id="refresh">
+    <button id="refreshtime">更新時間：</button>
+  </div>
+  <section class="entry" style="margin-top: 80px; background-color: #f9f9f9; height:calc(100vh - 60px);width:100vw;">
+    <div class="container">
+      <div id="entry">
+        <div class="wrapper flex">
+          <button class="box bgi entry_btn wh_word mg-10 fs-40 fw-900 h-100"
+            onclick="javascript:location.href='face.html'">臉部辨識資料</button>
+          <button class="box bgi entry_btn wh_word mg-10 fs-40 fw-900 h-100"
+            onclick="javascript:location.href='entry_inner.html'">通關人數資料</button>
+        </div>
+        <div class="wrapper mg-10">
+          <div class="flex grow-1 box ver-align" style="width: 100%;">
+            <span class="vlr">臉部辨識率</span>
+            <div class="entryline"></div>
+            <div class="grow-1 face_chart">
+              <p class="fs-30 fw-600" style="color:#8AC441; margin-bottom: 15px;">北崗哨</p>
+              <div class="face_piechart faceN_piechart" data-percent="0">
+                <div class="face_progress">
+                  <div class="face_progress-fill faceN_progress-fill"></div>
+                </div>
+                <div class="face_percents">
+                  <div class="face_percents-wrapper">
+                    <span>{{ faceNorthRate }}%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="entryline"></div>
+            <div class="grow-1 face_chart">
+              <p class="fs-30 fw-600" style="color:#8AC441; margin-bottom: 15px;">南崗哨</p>
+              <div class="face_piechart faceS_piechart" data-percent="">
+                <div class="face_progress">
+                  <div class="face_progress-fill faceS_progress-fill"></div>
+                </div>
+                <div class="face_percents">
+                  <div class="face_percents-wrapper">
+                    <span>{{ faceSouthRate }}%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="entryline"></div>
+            <div class="grow-1 face_chart">
+              <p class="fs-30 fw-600" style="color:#8AC441; margin-bottom: 15px;">四崗哨</p>
+              <div class="face_piechart faceF_piechart" data-percent="">
+                <div class="face_progress">
+                  <div class="face_progress-fill faceF_progress-fill"></div>
+                </div>
+                <div class="face_percents">
+                  <div class="face_percents-wrapper">
+                    <span>{{ faceFourRate }}%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex grow-1 box ver-align" style="width: 100%;">
+            <span class="vlr">崗哨通過率</span>
+            <div class="entryline"></div>
+            <div class="grow-1 FC_chart">
+              <div class="FCN_piechart FC_piechart" data-percent="">
+                <span class="failword">{{ FCnorthFail }}</span>
+                <span class="successword">{{ FCnorthPass }}</span>
+                <div class="FC_progress">
+                  <div class="FC_progress-fill FCN_progress-fill"></div>
+                </div>
+                <div class="FC_percents">
+                  <div class="FC_percents-wrapper">
+                    <span>{{ FCnorthRate }}%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="entryline"></div>
+            <div class="grow-1 FC_chart">
+              <div class="FCS_piechart FC_piechart" data-percent="">
+                <span class="failword">{{ FCsouthFail }}</span>
+                <span class="successword">{{ FCsouthPass}}</span>
+                <div class="FC_progress">
+                  <div class="FC_progress-fill FCS_progress-fill"></div>
+                </div>
+                <div class="FC_percents">
+                  <div class="FC_percents-wrapper">
+                    <span>{{ FCsouthRate }}%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="entryline"></div>
+            <div class="grow-1 FC_chart">
+              <div class="FCF_piechart FC_piechart" data-percent="">
+                <span class="failword">{{ FCfourFail }}</span>
+                <span class="successword">{{ FCfourPass }}</span>
+                <div class="FC_progress">
+                  <div class="FC_progress-fill FCF_progress-fill"></div>
+                </div>
+                <div class="FC_percents">
+                  <div class="FC_percents-wrapper">
+                    <span>{{ FCfourRate }}%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  </section>
+
+  <!-- oringinal -->
+  <script src="js/vue.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <!-- components -->
+  <script src="js/cookie.js"></script>
+  <script src="js/FCpie.js"></script>
+  <script src="js/dropdownmenu.js"></script>
+  <script src="js/goback.js"></script>
+  <!-- pages -->
+  <script src="js/entry.js"></script>
+  <script>
+    $("#header").load("header.html");
+  </script>
+  <script>
+    $("#load").load("loading.html");
+  </script>
+
+</body>
+
+</html>

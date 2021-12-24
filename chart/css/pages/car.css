@@ -1,0 +1,202 @@
+body{
+background-color: #f5f5f5;
+}
+.bgc_white {
+background-color: #ffffff;
+}
+.radio {
+display: inline-block;
+position: relative;
+padding: 0 6px;
+}
+.radio input[type='radio'] {
+display: none;
+}
+.radio label {
+color: #666;
+font-weight: normal;
+}
+.radio label:before {
+content: " ";
+display: inline-block;
+position: relative;
+top: 5px;
+margin: 0 5px 0 0;
+width: 20px;
+height: 20px;
+border-radius: 11px;
+border: 2px solid #4F1AFA;
+background-color: transparent;
+}
+.radio input[type=radio]:checked + label:after {
+border-radius: 11px;
+width: 14px;
+height: 14px;
+position: absolute;
+top: 10px;
+left: 11px;
+content: " ";
+display: block;
+background: #4F1AFA;
+}
+.d_in-flex {
+display: inline-flex;
+padding: 15px;
+justify-content: center;
+align-content: center;
+}
+.d_flex {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+align-content: center;
+}
+.d_flex div {
+width: 30%;
+margin: 5px;
+justify-content: center;
+align-content: center;
+text-align: center;
+}
+.d_flex div p {
+margin: 10%;
+}
+.w_30p {
+width: 30%;
+}
+.ml_10{
+margin-left: 10px;
+}
+.mb_10{
+margin-bottom: 10px;
+}
+.mb_30{
+margin-bottom: 30px;
+}
+.p_15{
+padding: 15px;
+}
+.btn{
+border-radius: 3px;
+border: none;
+font-weight: 600;
+font-size: 1.2em;
+padding:15px;
+}
+.container {
+max-width: 95%;
+margin: 0px auto;
+}
+.flex_workbtn {
+flex-direction: column;
+align-items: stretch;
+align-content: stretch;
+}
+.bgi {
+background-image: url(../img/btncurve.png);
+background-size: cover;
+background-repeat: no-repeat;
+background-position: 40px -50px;
+line-height: 4em;
+}
+.line::after {
+content: " ";
+margin-left: 10px;
+border-right: 2px solid #D1D1D1;
+}
+/* 另外增加的css */
+.flex_workbtn {
+flex-direction: column;
+align-items: stretch;
+align-content: stretch;
+}
+.bgi {
+background-image: url(../img/btncurve.png);
+background-size: cover;
+background-repeat: no-repeat;
+background-position: 40px -50px;
+line-height: 4em;
+}
+.line::after {
+content: " ";
+margin-left: 10px;
+border-right: 2px solid #D1D1D1;
+}
+.title_ {
+font-size: 32px;
+line-height: 46px;
+letter-spacing: 1px;
+color: #8B8B8B;
+text-align: left;
+}
+.date_btn {
+background-color: #fff;
+border-radius: 5px;
+border: none;
+color: #3c3c3c;
+padding: 5px 10px;
+}
+.active {
+background-color: #4F1AFA;
+border-radius: 5px;
+border: none;
+color: #fff;
+padding: 5px 10px;
+}
+.date_div {
+display: inline-block;
+}
+.date_div::after {
+content: " ";
+margin-left: 2%;
+border-right: 2px solid #D1D1D1;
+}
+.radio input {
+margin-right: 8px;
+}
+button.car_btn.output.align-right{
+    float: right;
+    margin:15px 10px 0 0;
+}
+@media(max-width:768px){
+#chart-app div.ver-align{
+height:100px;
+}
+button.car_btn.output.align-right{
+margin:-5px 10px 10px 0;
+}
+}
+.date_btn {
+background-color: #fff;
+border-radius: 5px;
+border: none;
+color: #3c3c3c;
+padding: 5px 10px;
+}
+
+.active {
+background-color: #4F1AFA;
+border-radius: 5px;
+border: none;
+color: #fff;
+padding: 5px 15px;
+border: 1px solid rgba(165, 165, 165, 0.429414);
+box-shadow: inset -3px 3px 8px rgba(126, 126, 126, 0.7);
+border-radius: 3px;
+}
+
+.date_div {
+display: inline-block;
+}
+
+.date_div::after {
+content: " ";
+margin:0 8%;
+border-right: 2px solid #D1D1D1;
+}
+
+.bg_alert {
+background-image: url(/img/alert.png);
+background-repeat: no-repeat;
+background-position-y: 75px;
+}

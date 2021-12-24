@@ -1,0 +1,77 @@
+.face_chart, .FC_chart{
+text-align: center;
+}
+.face_piechart{
+width: 200px;
+height: 200px;
+border-radius: 50%;
+background-color: #E5E5E5;
+position: relative;
+margin: 0 auto;
+}
+.FC_piechart{
+width: 200px;
+height: 200px;
+border-radius: 50%;
+background-color: #E02020;
+position: relative;
+margin: 0 auto;
+}
+.face_chart .gt-50, .FC_chart .gt-50{
+background-color: #8AC441;
+}
+.face_progress, .FC_progress{
+content: "";
+position: absolute;
+border-radius: 50%;
+left: calc(50% - 100px);
+top: calc(50% - 100px);
+width: 200px;
+height: 200px;
+clip: rect(0, 200px, 200px, 100px);
+}
+.face_progress .face_progress-fill, .FC_progress .FC_progress-fill{
+content: "";
+position: absolute;
+border-radius: 50%;
+left: calc(50% - 100px);
+top: calc(50% - 100px);
+width: 200px;
+height: 200px;
+clip: rect(0, 100px, 200px, 0);
+background: #8AC441;
+transform: rotate(60deg);
+}
+.gt-50 .face_progress, .gt-50 .FC_progress{
+clip: rect(0, 100px, 200px, 0);
+}
+.gt-50 .face_progress .face_progress-fill{
+clip: rect(0, 200px, 200px, 100px);
+background: #E5E5E5;
+}
+.gt-50 .FC_progress .FC_progress-fill{
+clip: rect(0, 200px, 200px, 100px);
+background: #E02020;
+}
+.face_percents, .FC_percents{
+content: "";
+position: absolute;
+border-radius: 50%;
+left: calc(50% - 150px/2);
+top: calc(50% - 150px/2);
+width: 150px;
+height: 150px;
+background: #fff;
+text-align: center;
+display: table;
+}
+.face_percents span, .FC_percents span {
+display: block;
+font-size: 2.6em;
+font-weight: bold;
+color: #8AC441;
+}
+.face_percents-wrapper, .FC_percents-wrapper {
+display: table-cell;
+vertical-align: middle;
+}

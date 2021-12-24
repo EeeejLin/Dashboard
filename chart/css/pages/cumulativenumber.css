@@ -1,0 +1,31 @@
+.checkfield label:after {
+background: #FDA000;
+}
+.radio input[type=radio]:checked + label:after {
+background: #FDA000;
+}
+.date_btn {
+background-color: #fff;
+border-radius: 5px;
+border: none;
+color: #3c3c3c;
+padding: 5px 10px;
+}
+.active {
+background-color: #FDA000;
+border-radius: 5px;
+border: none;
+color: #fff;
+padding: 5px 15px;
+border: 1px solid rgba(165, 165, 165, 0.429414);
+box-shadow: inset -3px 3px 8px rgba(126, 126, 126, 0.7);
+border-radius: 3px;
+}
+.date_div {
+display: inline-block;
+}
+.date_div::after {
+content: " ";
+margin:0 8%;
+border-right: 2px solid #D1D1D1;
+}

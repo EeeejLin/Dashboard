@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/base/_reset.css">
+    <link rel="stylesheet" href="css/base/_basicStyle.css">
+    <link rel="stylesheet" href="css/base/_fontStyle.css">
+    <link rel="stylesheet" href="css/base/normalize.css">
+    <link rel="stylesheet" href="css/layout/_navbar.css">
+    <link rel="stylesheet" href="css/components/input_style.css">
+    <link rel="stylesheet" href="css/components/date.css">
+    <link rel="stylesheet" href="css/components/sweetalert.min.css"><!-- add -->
+    <link rel="stylesheet" href="css/components/loading.css">
+    <link rel="stylesheet" href="css/pages/car.css">
+
+    <title>車輛資料</title>
+</head>
+
+<body>
+    <div id="header"></div>
+    <div id="load"></div>
+    <div id="print" style="display: none;"></div><!-- add -->
+    <!--數據文字-->
+    <div id="refresh">
+        <button id="refreshtime">更新時間：</button>
+      </div>
+    <section class="mg_top_80">
+        <div class="container">
+            <div class="flex align_center" id="forapi" style="justify-content: space-between;">
+                <div style="flex:1">
+                    <h4 class="gr_word fs-18 align_left" style="margin-left: 15px;">進廠</h4>
+                    <div class="flex" style="width: 100%;">
+                        <div class="box bgc_white grow-1 mg-10 h-180" style="padding: 35px 10px 10px 10px">
+                            <p class="car_word mg-10 fs-50 fw-900">{{carFlowIn}}</p>
+                            <p class="bl_word mg-10 fs-18">汽車進廠數量</p>
+                        </div>
+                        <div class="box bgc_white grow-1 mg-10 h-180" style="padding: 35px 10px 10px 10px">
+                            <p class="car_word mg-10 fs-50 fw-900">{{scooterFlowIn}}</p>
+                            <p class="bl_word mg-10 fs-18">機車進廠數量</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="background-color:#dbdbdb; height: 220px; width: 3px;"></div>
+                <div style="flex:1">
+                    <h4 class="gr_word fs-18 align_left" style="margin-left: 15px;">出廠</h4>
+                    <div class="flex" style="width: 100%;">
+                        <div class="box bgc_white grow-1 mg-10 h-180" style="padding: 35px 10px 10px 10px">
+                            <p class="car_lightword mg-10 fs-50 fw-900">{{carFlowOut}}</p>
+                            <p class="bl_word mg-10 fs-18">汽車出廠數量</p>
+                        </div>
+                        <div class="box bgc_white grow-1 mg-10 h-180" style="padding: 35px 10px 10px 10px">
+                            <p class="car_lightword mg-10 fs-50 fw-900">{{scooterFlowOut}}</p>
+                            <p class="bl_word mg-10 fs-18">機車出廠數量</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box mg-10 bgc_white pd-10" style="display:flex; flex-wrap:wrap; text-align:left; line-height: 25px;">
+                <div class="radio mg-10"><input id="car" name="inquiretype"  value="1" type="radio" onclick="getTypeValue()"><label for="car">汽車進出廠數量</label></div>
+                <div class="radio mg-10"><input id="motor" name="inquiretype" value="0" type="radio" onclick="getTypeValue()"><label for="motor">機車進出廠數量</label></div>
+            </div>
+            <!--圖表區塊-->
+            <div id="chart_app">
+                <!--圖表日期/匯出-->
+                    <div class="ver-align" id="top">
+                    <div class="box bgc_white mg-10" style="display: inline-block; padding: 5px 10px;">
+                        <div class="date_div">
+                            <button class="date_btn" v-bind:class="[ message === '0' ? 'active' : '' ]"
+                                v-on:click="time('0')">日</button>
+                        </div>
+                        <div class=" date_div">
+                            <button class="date_btn" v-bind:class="[ message === '1' ? 'active' : '' ]"
+                                v-on:click="time('1')">週</button>
+                        </div>
+                        <div class="date_div">
+                            <button class="date_btn" v-bind:class="[ message === '2' ? 'active' : '' ]"
+                                v-on:click="time('2')">月</button>
+                        </div>
+                        <button class="date_btn" id="hideshow" v-bind:class="[ message === '3' ? 'active' : '' ]"
+                            v-on:click="time('3')">自訂</button>
+                        <div id="edate" style="display: inline-block;">
+                            <el-date-picker v-model="range" type="daterange" start-placeholder="Start date"
+                                end-placeholder="End date" value-format="yyyy/MM/dd">
+                            </el-date-picker>
+                        </div>
+                    </div>
+                    <span class="remind_word">＊自訂日期範圍最多45天</span>
+                    <a id="printbtn"><button class="car_btn output align-right">匯出資料</button></a>
+                    <!-- add -->
+
+                </div>
+                <!--圖表-->
+                <div class="mg-10">
+                    <div id="title" class="fs-28 fs-24" style="display: inline-block;"></div>
+                    <span id="date" class="fs-28" style="float: right;">日期：</span>
+                </div>
+                <div id="chartbox" class="box bgc_white pd-30 mg-10">
+                    <div id="chart"></div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- oringinal -->
+    <script src="js/vue.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/apexcharts.js"></script>
+    <!-- components -->
+    <script src="js/cookie.js"></script>
+    <script src="js/dropdownmenu.js"></script>  
+    <script src="js/index_date.js"></script>
+    <script src="js/goback.js"></script>
+    <script src="js/sweetalert.min.js"></script><!-- add -->
+    <!-- pages -->
+    <script src="js/car.js"></script>
+    <script>
+        $("#header").load("header.html");
+    </script>  
+    <script>
+        $("#load").load("loading.html");
+    </script> 
+    <script> //add
+        $("#print").load("popup.html");
+    </script> 
+    <script> //add
+        $( "#printbtn" ).click(function() {
+            $( "#print" ).css("display","flex");
+                setTimeout(function() { 
+                // $('#overlay').fadeOut(); 
+                // $( "#print" ).css("display","none");
+            }, 1300); 
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/base/_reset.css">
+    <link rel="stylesheet" href="css/base/normalize.css">
+    <link rel="stylesheet" href="css/base/_fontStyle.css">
+    <link rel="stylesheet" href="css/base/_basicStyle.css">
+    <link rel="stylesheet" href="css/pages/login.css">
+    
+    <!-- oringinal -->
+    <script src="js/vue.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <!-- components -->
+    <script src="js/cookie.js"></script>
+    
+    <title>大潭火力發電廠門禁管理系統</title>
+</head>
+<body>
+    <section class="login">
+       <div class="container">
+           <div id="login" class="wrapper align_center">
+                <div class="login-title">
+                    <div class="mg-10">
+                        <img class="mg-10" src="img/台電.png" alt="">
+                        <span class="fs-20 fw-600" style="white-space:nowrap;">大潭火力發電廠門禁管理系統</span>
+                    </div>
+                    <div class="account align_left mg_top_20">
+                        <span>帳號</span>
+                        <input type="text" id="username" placeholder="請輸入帳號">
+                    </div>
+                    <div class="password align_left mg_top_20">
+                        <span>密碼</span>
+                        <input type="password" id="password" placeholder="請輸入密碼">
+                    </div>
+                    <button id="signin" type="button" class="login-btn mg_top_20">登入</button>
+                </div>
+           </div>
+       </div>
+    </section>
+    <script>
+        $('#signin').click(function(){     
+            var id = request("url");
+            console.log(id);
+            $.ajax({
+            url: "http://192.168.50.47:8002/api/Login.aspx",
+            method: "post", //直接傳遞物件
+            data:{        
+            ant:$('#username').val(),
+            pwd:$('#password').val(),
+            },
+            dataType: 'json',
+            success: function (evt) {
+                $.each(evt,function (k, item) {
+                    if (item.Token != "") {
+                        setCookie('token', item.Token);
+                        window.location.href=id+".html";
+                    }
+                   
+                })
+            }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/base/_reset.css">
+    <link rel="stylesheet" href="css/base/_basicStyle.css">
+    <link rel="stylesheet" href="css/base/_fontStyle.css">
+    <link rel="stylesheet" href="css/base/normalize.css">
+    <link rel="stylesheet" href="css/layout/_navbar.css">
+    <link rel="stylesheet" href="css/components/input_style.css">
+    <link rel="stylesheet" href="css/components/date.css">
+    <link rel="stylesheet" href="css/components/sweetalert.min.css">
+    <link rel="stylesheet" href="css/components/loading.css">
+    <link rel="stylesheet" href="css/components/radiobtn.css">
+    <link rel="stylesheet" href="css/pages/company.css">
+
+    <title>承攬發包資料</title>
+</head>
+<body>
+    <div id="header"></div>
+    <div id="load"></div>
+    <div id="print" style="display: none;"></div>
+    <div id="refresh">
+        <button id="refreshtime">更新時間：</button>
+    </div>
+    <!--數據文字-->
+    <section class="mg_top_80">
+        <div class="container">
+            <div class="d_flex" id="forapi">
+                <!-- display on tablet -->
+                <div class="displayonTablet">
+                    <button class="box mg-10 peopleWork_btn align_center fw-900 wh_word fs-40 bgi displayonTablet" onclick="javascript:location.href='office.html'">組室資料統計圖</button>
+                    <button class="box mg-10 peopleWork_btn align_center fw-900 wh_word fs-40 bgi displayonTablet" onclick="javascript:location.href='company_inner.html'">承攬商資料統計圖</button>
+                </div>
+                <!-- display on tablet -->
+                <div class="d_flex" style="width: 100%;">
+
+                    <div class="box bgc_white grow-1 mg-10 h-180" style="flex: 1; padding: 35px 10px 10px;">
+                        <p class="peopleWork_word mg-10 fs-50 fw-900">{{companyToday}}</p>
+                        <p class="bl_word mg-10 fs-18">承攬公司數量</p>
+                    </div>
+                    <div class="box bgc_white grow-1 mg-10 h-180" style="flex: 1;  padding: 25px 10px 10px;">
+                        <p class="peopleWork_word mg-10 fs-50 fw-900">{{peopleWork}}</p>
+                        <p class="bl_word mg-10 fs-18">廠內<br>點工上工人數</p>
+                    </div>
+                    <div class="box bgc_white grow-1 mg-10 h-180" style="flex: 1;  padding: 25px 10px 10px;">
+                        <p class="peopleWork_word mg-10 fs-50 fw-900">{{peopleInWork}}</p>
+                        <p class="bl_word mg-10 fs-18">機組區<br>點工上工人數</p>
+                    </div>
+                    <button class="box mg-10 peopleWork_btn align_center fw-900 wh_word fs-40 bgi" onclick="javascript:location.href='office.html'">組室資料統計圖</button>
+                </div>
+                <div class="d_flex" style="width: 100%;">
+                    <div class="box bgc_white grow-1 mg-10 h-180" style="flex: 1;  padding: 35px 10px 10px;">
+                        <p class="peopleWork_word mg-10 fs-50 fw-900">{{contractOutToday}}</p>
+                        <p class="bl_word mg-10 fs-18">發包數量</p>
+                    </div>
+                    <div class="box bgc_white grow-1 mg-10 h-180 bg_alert" style="flex: 1;  padding: 25px 10px 10px;">
+                        <p class="peopleWork_word mg-10 fs-50 fw-900">{{peopleUnWork}}</p>
+                        <p class="bl_word mg-10 fs-18">廠內<br>無效人力人數</p>
+                    </div>
+                    <div class="box bgc_white grow-1 mg-10 h-180 bg_alert" style="flex: 1;  padding: 25px 10px 10px;">
+                        <p class="peopleWork_word mg-10 fs-50 fw-900">{{peopleInUnWork}}</p>
+                        <p class="bl_word mg-10 fs-18">機組區<br>無效人力人數</p>
+                    </div>
+                    <button class="box mg-10 peopleWork_btn align_center fw-900 wh_word fs-40 bgi" onclick="javascript:location.href='company_inner.html'">承攬商資料統計圖</button>
+                </div>
+            </div>
+        <!--圖表區塊-->
+            <div id="chart_app">
+                <!--切換圖表-->
+                <div class="box mg-10 bgc_white pd-10" style="display:flex; flex-wrap:wrap; text-align:left; line-height: 25px;">
+                    <div v-for="todo in todos">
+                        <todo :text="todo.text" :done="todo.done" :name="todo.name" v-on:event="childByValue"
+                            :select="select"></todo>
+                    </div>
+                </div>
+                <!--圖表日期/匯出-->
+
+                <div class="ver-align" id="top">
+                    <div class="box mg-10 bgc_white" style="display: inline-block; padding:5px 10px;">
+                        <!-- <div class="date_div">
+                            <button class="date_btn" v-bind:class="[ message === '日' ? 'active' : '' ]"
+                                v-on:click="time('日')">日</button>
+                        </div> -->
+                        <div class="date_div">
+                            <button class="date_btn" v-bind:class="[ message === '週' ? 'active' : '' ]"
+                                v-on:click="time('週')">週</button>
+                        </div>
+                        <div class="date_div">
+                            <button class="date_btn" v-bind:class="[ message === '月' ? 'active' : '' ]"
+                                v-on:click="time('月')">月</button>
+                        </div>
+                        <div id="datepick" style="display: inline-block;">
+                            <span class="datecustom">自訂</span>
+                            <el-date-picker :editable="false" v-model="range" type="daterange" start-placeholder="起始日期"
+                                end-placeholder="結束日期" value-format="yyyy/MM/dd">
+                            </el-date-picker>
+                            <button class="date_btn" v-bind:class="[ message === '自訂' ? 'active' : '' ]"
+                            v-on:click="time('自訂')">確定</button>
+                        </div>
+                    </div>
+                    <span class="remind_word">＊自訂日期範圍最多45天</span>
+                    <a id="printbtn"><button class="peopleWork_btn output align-right">匯出資料</button></a>
+                </div>
+                <!--圖表-->
+                <div class="mg-10">
+                    <div class="fs-28 fs-24" style="display: inline-block;">{{text}}</div>
+                    <span class="fs-28" style="float: right;">日期：{{datechoose}}</span>
+                </div>
+                <div id="chartbox" class="box bgc_white pd-30 mg-10">
+                    <div id="main"></div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- oringinal -->
+    <script src="js/vue.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/apexcharts.js"></script>
+    <!-- components -->
+    <script src="js/cookie.js"></script>
+    <script src="js/dropdownmenu.js"></script>  
+    <script src="js/index_date.js"></script>
+    <script src="js/goback.js"></script>
+    <script src="js/sweetalert.min.js"></script>
+    <!-- pages -->
+    <script src="js/company.js"></script>
+    <script>
+        $("#header").load("header.html");
+    </script>  
+    <script>
+          $("#load").load("loading.html");
+    </script> 
+    <script>
+          $("#print").load("popup.html");
+    </script> 
+
+    <script>
+        $( "#printbtn" ).click(function() {
+            $( "#print" ).css("display","flex");
+                setTimeout(function() { 
+                $('#overlay').fadeOut(); 
+                $( "#print" ).css("display","none");
+            }, 1300); 
+        });
+    </script>
+</body>
+
+</html>

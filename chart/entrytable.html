@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/base/_reset.css">
+  <link rel="stylesheet" href="css/base/normalize.css">
+  <link rel="stylesheet" href="css/base/_fontStyle.css">
+  <link rel="stylesheet" href="css/base/_basicStyle.css">
+  <link rel="stylesheet" href="css/layout/_navbar.css">
+  <link rel="stylesheet" href="css/components/loading.css">
+  <link rel="stylesheet" href="css/pages/entrytable.css">
+
+  <title>大潭火力發電廠門禁管理系統</title>
+</head>
+
+<body>
+  <div id="header"></div>
+  <div id="load"></div>
+  <!--數據文字-->
+  <section class="wrapper" style="margin-top: 80px; background-color: #f9f9f9;">
+    <div class="container" id="entrytable">
+
+      <div class="flexc">
+        <span class="bl-word fs-24 pd-5 entry_table_title" id="title"></span>
+        <div>
+          <select id="table_select" class="table_select">
+            <option value="0">全部</option>
+            <option value="1">通關</option>
+            <option value="2">未通關</option>
+          </select>
+          <a id="printbtn">
+            <button class="entry_btn output align-right table_output">匯出資料</button>
+          </a>
+        </div>
+      </div>
+
+      <div class="out">
+        <table class="table-scroll">
+          <thead>
+            <tr>
+              <th>No
+                <a href="#"><span class="material-icons wh_word"
+                    style="margin-left: -12px; font-size: 24px;"></span></a>
+              </th>
+              <th>時間
+                <a href="#"><span class="material-icons wh_word"
+                    style="margin-left: -12px; font-size: 24px;"></span></a>
+              </th>
+              <th>姓名</th>
+              <th>身份證字號</th>
+              <th>狀態</th>
+              <th>原因</th>
+              <th>電話</th>
+              <th>組室</th>
+              <th>承攬商公司</th>
+              <th>崗哨</th>
+              <th>通道刷卡機</th>
+            </tr>
+          </thead>
+          <tbody class="body-half-screen">
+            <tr id="nodata">
+              <td colspan="11">查無資料</td>
+            </tr>
+            <tr v-for="item in items">
+              <td>{{ item.ID }}</td>
+              <td>{{ item.Time}}</td>
+              <td>{{ item.Name }}</td>
+              <td>{{ item.NameID }}</td>
+              <td>{{ item.Status }}</td>
+              <td>{{ item.ErrorStatus }}</td>
+              <td>{{ item.Phone }}</td>
+              <td>{{ item.WorkOffice }}</td>
+              <td>{{ item.Company }}</td>
+              <td>{{ item.Sentry }}</td>
+              <td>{{ item.Kiosk }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- oringinal -->
+  <script src="js/vue.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <!-- components -->
+  <script src="js/cookie.js"></script>
+  <script src="js/dropdownmenu.js"></script>
+  <script src="js/goback.js"></script>
+  <!-- pages -->
+  <script src="js/entrytable.js"></script>
+  <script>
+    $("#header").load("header.html");
+  </script>
+  <script>
+    $("#load").load("loading.html");
+  </script>
+
+</body>
+
+</html>
